@@ -28,6 +28,7 @@ jobs:
       - name: 'Mostrar el mensaje'
         run: echo "Hola Mundo" 
       - name: 'Mostrar variables de entorno'
+        if: (env.MY_NAME == 'John Do')
         run: |
           echo "Mi nombre es: ${{env.MY_NAME}}"
           echo "Estoy usando la plataforma: ${{env.plataforma}}"
