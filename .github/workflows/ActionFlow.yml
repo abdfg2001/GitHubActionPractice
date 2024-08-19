@@ -28,9 +28,12 @@ jobs:
       - name: 'Mostrar el mensaje'
         run: echo "Hola Mundo" 
       - name: 'Mostrar variables de entorno'
-        if: (env.MY_NAME == 'John Doe')
+        if: ${{env.MY_NAME == 'John Doe'}}
         run: |
           echo "Mi nombre es: ${{env.MY_NAME}}"
           echo "Estoy usando la plataforma: ${{env.plataforma}}"
           echo "Estoy en la región: ${{env.region}}"
           echo "Mi cuenta es: ${{env.account}}"
+      - name: 'Mostrar variables por defecto'
+        run:         
+          echo  "Evento:${{toJSON(github.event_name)}}"
